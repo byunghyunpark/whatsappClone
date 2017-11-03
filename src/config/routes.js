@@ -1,9 +1,14 @@
 import Home from '../screens/Home';
+import Login from '../screens/Login';
+import SignUp from '../screens/SignUp';
 import ChatScreen from '../screens/ChatScreen';
+
 
 const routes = {
     home: { screen: Home },
-    chat: { screen: ChatScreen }
+    login: { screen: Login },
+    signup: { screen: SignUp },
+    chat: { screen: ChatScreen },
 }
 
-export default routes; 
+export default routes;

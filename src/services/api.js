@@ -1,15 +1,27 @@
-const mockMessages = [
-    { 
-        incoming: true,
-        message: 'Hi Vladimir'
-    },
-    {
-        incoming: true,
-        message: 'Hi John'
-    },
-    // rest of messages in the same format.
-]
+import { 
+    signup, 
+    login, 
+    initialize,
+    setListener,
+    pushData
+} from './firebase';
 
-export const getMockData = () => (
-    new Promise(resolve => setTimeout(() => resolve(mockMessages), 1000))
-)
+
+export const initApi = () => initialize();
+
+
+export {
+    login,
+    signup
+}
+
+export const getMessages = (updaterFn) => setListener('messages', updaterFn);
+
+export const postMessage = (message) => {
+    if (Boolean(message)) {
+        pushData('messages', {
+            incoming: false,
+            message
+        })
+    }
+}

@@ -1,42 +1,76 @@
 import React, { Component } from 'react';
+import styles from '../styles/common';
 import {
     Platform,
     StyleSheet,
     Text,
     View,
-    Button
+    Button,
+    ImageBackground,
+    TouchableHighlight,
+    Image,
+    ScrollView
 } from 'react-native';
 
 
 export default class Home extends React.Component {
     static navigationOptions = {
-        title: "Home Screen"
+        title: 'LUXLAB',
+        headerStyle: {
+            backgroundColor: '#fff',
+            borderBottomWidth: 0,
+            elevation: 0,
+        },
+        headerTitleStyle: {
+            color: '#000',
+            fontSize: 20,
+            textAlign: 'center', 
+            alignSelf: 'center',
+        }
     } 
 
     render() {
         return (
-            <View style={styles.container}>
-                <Button title="Navigate to ChatScreen" onPress={() => this.props.navigation.navigate('chat', { name: 'John' })} />
+            <View style={styles.backgroundWhite}>    
+                <TouchableHighlight
+                    style={styles.container}
+                    underlayColor="#fff"
+                    onPress={() => this.props.navigation.navigate('chat', { name: 'John' })}>
+                    <ImageBackground
+                        source={require('../assets/main1.jpg')}
+                        style={[styles.mainPhoto, styles.mainOpacity]}>
+                        <View style={styles.mainOpacity}>
+                            <Text style={styles.mainTitle}>중고 명품 구매</Text>
+                            <Text style={styles.mainDescription}>검증받은 다양한 명품들을{"\n"}간편하게 볼 수 있습니다</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableHighlight>
+                <TouchableHighlight 
+                    style={styles.container}
+                    onPress={() => this.props.navigation.navigate('chat', { name: 'John' })}>
+                    <ImageBackground
+                        source={require('../assets/main2.jpg')}
+                        style={styles.mainPhoto}>
+                        <View style={styles.mainOpacity}>
+                            <Text style={[styles.mainTitle, styles.alignRight]}>수선 견적 문의</Text>
+                            <Text style={[styles.mainDescription, styles.alignRight]}>몇 가지 정보 입력으로{"\n"}수선 견적을 받아보세요</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableHighlight>
+                <TouchableHighlight 
+                    style={styles.container}
+                    onPress={() => this.props.navigation.navigate('chat', { name: 'John' })}>
+                    <ImageBackground
+                        source={require('../assets/main3.jpg')}
+                        style={[styles.mainPhoto, styles.mainPhotoEnd]}
+                        >
+                        <View style={styles.mainOpacity}>
+                            <Text style={styles.mainTitle}>중고 명품 판매</Text>
+                            <Text style={styles.mainDescription}>몇 가지 정보 입력으로{"\n"}매매 견적을 받아보세요</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableHighlight>
             </View>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
