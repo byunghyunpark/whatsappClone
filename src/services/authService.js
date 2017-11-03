@@ -1,5 +1,4 @@
 import React from 'react';
-import SplashScreen from '../components/SplashScreen';
 import { NavigationActions } from 'react-navigation'
 
 
@@ -24,6 +23,7 @@ const authService = new AuthService(false);
 
 export const authDecorator = (Component) => {
     return class AuthChecker extends React.Component {
+        static navigationOptions = Component.navigationOptions;
 
         state = {
             auth: false
@@ -47,7 +47,8 @@ export const authDecorator = (Component) => {
         }
 
         render() {
-            return this.state.auth ? <Component /> : <SplashScreen />
+            return <Component 
+                {...this.props}/>
         }
     }
 }

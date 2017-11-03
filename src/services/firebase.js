@@ -19,7 +19,6 @@ export const pushData = (endpoint, data) => {
 }
 
 export const login = (email, pass) => {
-    console.log('kkkkkkkkkk');
     return firebase.auth()
         .signInWithEmailAndPassword(email, pass)
 }
@@ -28,7 +27,6 @@ export const logout = () =>
     firebase.auth().signOut()
 
 export const signup = (email, pass) => {
-    console.log('aaaaaaaaa');
     return firebase.auth().createUserWithEmailAndPassword(email, pass);
 }
     

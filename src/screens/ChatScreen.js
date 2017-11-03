@@ -21,9 +21,9 @@ import styles from '../styles/common';
 
 
 class ChatScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: `Chat with ${navigation.state.params.name}`
-    })
+    static navigationOptions = {
+        title: 'Chat Screen'
+    }
 
     keyboardVerticalOffset = Platform.OS === 'ios' ? 60 : 0
     
@@ -62,7 +62,9 @@ class ChatScreen extends React.Component {
                                 keyExtractor={(item, index) => (`message-${index}`)}
                             />
                         </ScrollView>
-                        <Compose submit={postMessage}/>
+                        <Compose
+                            navigation={this.props.navigation}
+                            submit={postMessage}/>
                     </KeyboardAvoidingView>
                 
             </ImageBackground>
@@ -109,10 +111,6 @@ class Compose extends React.Component {
                 <Button 
                     onPress={(text) => this.submit()}
                     title="send"/>
-                <Button
-                    title="go home"
-                    onPress={() => this.props.navigation.navigate('home')}>
-                </Button>
             </View>
         )
     }
