@@ -9,7 +9,9 @@ import {
     ImageBackground,
     TouchableHighlight,
     Image,
-    ScrollView
+    ScrollView,
+    Alert,
+    CameraRoll
 } from 'react-native';
 
 
@@ -34,6 +36,34 @@ export default class Home extends React.Component {
         
     };
 
+
+    alert() {
+        Alert.alert(
+            'Here goes Alert title',
+            'My first Api test in ApiPlayground',
+            [
+                {
+                    text: 'Continue',
+                    onPress: () => console.log('Ask me later pressed')
+                },
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'), style:
+                    'cancel'
+                },
+                {
+                    text: 'Exit',
+                    onPress: () =>
+                        Alert.alert('Are you sure?', '', [
+                            { text: 'Ok' },
+                            { text: 'Cancel', style: 'cancel' }]),
+                    style: 'destructive'
+                }
+            ],
+            { cancelable: true }
+        )
+    }
+
     render() {
         return (
             <View style={styles.backgroundWhite}>    
@@ -52,7 +82,7 @@ export default class Home extends React.Component {
                 </TouchableHighlight>
                 <TouchableHighlight 
                     style={styles.container}
-                    onPress={() => this.props.navigation.navigate('chat', { name: 'John' })}>
+                    onPress={() => this.props.navigation.navigate('photos')}>
                     <ImageBackground
                         source={require('../assets/main2.jpg')}
                         style={styles.mainPhoto}>
@@ -64,7 +94,7 @@ export default class Home extends React.Component {
                 </TouchableHighlight>
                 <TouchableHighlight 
                     style={styles.container}
-                    onPress={() => this.props.navigation.navigate('chat', { name: 'John' })}>
+                    onPress={this.alert}>
                     <ImageBackground
                         source={require('../assets/main3.jpg')}
                         style={[styles.mainPhoto, styles.mainPhotoEnd]}

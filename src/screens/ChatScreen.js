@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ImageBackground, View, KeyboardAvoidingView, Platform, Text, StyleSheet, Button, FlatList, ScrollView } from 'react-native';
+import { ImageBackground, View, KeyboardAvoidingView, Platform, Text, StyleSheet, Button, FlatList, ScrollView, Alert } from 'react-native';
 import Message from '../components/Message';
 import Compose from '../components/Compose';
 import store from '../store';
@@ -25,7 +25,7 @@ class ChatScreen extends React.Component {
     componentWillUnmount() {
         this.props.unSubscribeToGetMessagesFromServer();
     }
-
+    
     render() {
         return (
             <ImageBackground
