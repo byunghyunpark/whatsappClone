@@ -110,5 +110,9 @@ export default styles = StyleSheet.create({
     },
     textHeader: {
         fontSize: 20,
-    }
+    },
+    icon: {
+        width: 24,
+        height: 24,
+    },
 });

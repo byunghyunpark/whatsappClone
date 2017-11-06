@@ -26,8 +26,13 @@ export default class Home extends React.Component {
             fontSize: 20,
             textAlign: 'center', 
             alignSelf: 'center',
-        }
-    } 
+        },
+        // headerRight: <Image 
+        //                 onPress={() => this.props.navigation.navigate('DrawerOpen')}
+        //                 source={require('../assets/imgs/menu.png')}
+        //                 style={styles.icon}/>,
+        
+    };
 
     render() {
         return (
