@@ -3,6 +3,7 @@ import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
 import ChatScreen from '../screens/ChatScreen';
 import PhotoList from '../screens/PhotoList';
+import MyGeolocation from '../screens/MyGeolocation';
 
 import { StackNavigator } from 'react-navigation';
 
@@ -13,6 +14,7 @@ const routes = {
     signup: { screen: SignUp },
     chat: { screen: ChatScreen },
     photos: { screen: PhotoList },
+    mygeolocation: { screen: MyGeolocation }
 }
 
 export default routes;

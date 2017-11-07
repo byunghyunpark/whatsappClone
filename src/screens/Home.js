@@ -94,7 +94,7 @@ export default class Home extends React.Component {
                 </TouchableHighlight>
                 <TouchableHighlight 
                     style={styles.container}
-                    onPress={this.alert}>
+                    onPress={() => this.props.navigation.navigate('mygeolocation')}>
                     <ImageBackground
                         source={require('../assets/main3.jpg')}
                         style={[styles.mainPhoto, styles.mainPhotoEnd]}
